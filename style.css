@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+  }
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    
+    
+
+  }
+
+
+.grid-item{
+    border: 1px solid black;
+    width: 6vw;
+    height: 6vh;
+
+
+}
+    
+
+    
+
