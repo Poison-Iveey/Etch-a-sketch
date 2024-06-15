@@ -2,21 +2,30 @@
     box-sizing: border-box;
   }
 
-#myGrid {
-    display: flex;
-    flex-wrap: wrap;
-    border: 1px solid black;
+body{
+  background-color: aquamarine;
+}
 
-  }
+.container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 600px;
+  margin: 0 auto;
+
+}
 
 
 .grid-item{
-  display: flex;
-  flex-wrap: wrap;
   border: 1px solid black;
-  flex: 1 1 auto;
+  width: 30px;
+  height: 30px;
+  
 }
 
+.new_items{
+  border: 1px solid black;
+
+}
 
 
 
