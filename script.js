@@ -34,19 +34,49 @@ function myFunction(){
             new_gridItem.className = 'new_items';
             new_gridItem.style.width = `${gridItemSize}px`;
             new_gridItem.style.height = `${gridItemSize}px`;
+            new_gridItem.setAttribute('data-darkness', 0); // Initialize darkness level
             gridContainer.appendChild(new_gridItem);
         }
 
         let new_squares = document.getElementsByClassName('new_items');
         for (let i = 0; i < new_squares.length; i++) {
             new_squares[i].addEventListener("mouseover", function() {
-                this.style.background = "#ffd66b";
+                this.style.background = getRandomColor();
             });
         }
     }
 }
 
+function getRandomColor() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;// this are placeholders which allow embeding of the variables directly within the strings
+    //If r, g, and b were 123, 45, and 67 respectively, the line return \rgb(${r}, ${g}, ${b})`;would produce the string"rgb(123, 45, 67)"`.
+}
+
+function darkenGrid() {
+    let new_squares = document.getElementsByClassName('new_items');
+    for (let i = 0; i < new_squares.length; i++) {
+        let darkness = parseInt(new_squares[i].getAttribute('data-darkness'), 10);
+        if (darkness < 10) {
+            darkness++;
+            new_squares[i].setAttribute('data-darkness', darkness);
+            let shade = 255 - (darkness * 25.5);
+            new_squares[i].style.backgroundColor = `rgb(${shade}, ${shade}, ${shade})`;
+        }
+    }
+}
+
+
 let button = document.getElementById('button');
 button.addEventListener("click", myFunction);  
+
+let darkenButton = document.getElementById('darkenButton');
+ darkenButton.addEventListener("click", darkenGrid);
+
+
+
+
   
 
